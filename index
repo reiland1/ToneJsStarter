@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <script src='https://cdnjs.cloudflare.com/ajax/libs/tone/14.8.32/Tone.js'></script>
+        <style> 
+            #go {
+            width: 100px;
+            height:30px;
+            border-radius: 20px;
+            text-align: center;
+            line-height: 30px;
+            margin: 5px;
+            }
+            #go:hover{background-color: #CCC; cursor:pointer;}
+            </style>
+    </head>
+    <body>
+        <div id="go" onclick='go()'>play</div>
+        <script> 
+            
+            async function go(){
+                await Tone.start();
+                const synth = new Tone.Synth().toDestination();
+
+                const now = Tone.now();
+                synth.triggerAttackRelease("D4", '4n', now);
+                synth.triggerAttackRelease("F4", '4n', now + 0.5);
+                synth.triggerAttackRelease("A4",'4n', now + 1);
+                synth.triggerAttackRelease("C5",'4n', now + 1.5);
+                synth.triggerAttackRelease("E5",'4n', now + 2);
+                
+            }
+
+    </script>
+
+
+    </body>
+</html>
+
